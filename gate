@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh ssh.epitech.net -l gueye_b

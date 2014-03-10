@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh opensuse.epitech.net -l gueye_b

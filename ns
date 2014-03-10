@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+## ns.sh for ns in /u/epitech_2011/rollan_a/cu/sbin
+## 
+## Made by alexis rolland
+## Login   <rollan_a@epitech.net>
+## 
+## Started on  Fri Feb  8 10:38:15 2008 alexis rolland
+## Last update Fri Feb  8 10:38:24 2008 alexis rolland
+##
+if [ $# -eq 0 ]
+  then
+    echo -n 'Login du destinataire : ';
+    read LOGIN;
+  else
+    LOGIN=$1
+fi
+while read LINE
+do
+  if [ "x"$LINE = 'xexit' ]
+  then
+    break;
+  else
+    if [ "x"$LINE != "x" ]
+    then
+      ns_send_msg $LOGIN $LINE;
+    fi
+  fi
+done

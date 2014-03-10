@@ -1,0 +1,68 @@
+#!/bin/sh
+
+date=$(date +"%c" | tr -d '\n')
+if [ ! -e .domake ]
+then
+project_name=$(basename `pwd` | tr -d '\n')
+project_path=$(pwd | tr -d '\n')
+user_realname=$(cat /etc/passwd | grep $USER | cut -d: -f5 | tr -d '\n' | cut -d, -f1)
+date_start=$date
+cat<<EOF > .domake
+$project_name;$project_path;$user_realname;$date_start
+EOF
+else
+IFS=';'
+read project_name project_path user_realname date_start < .domake
+fi
+
+cat <<EOF > Makefile
+##
+## Makefile for $project_name in $project_path
+##
+## Made by $user_realname
+## Login   <$USER@epitech.net>
+##
+## Started on  $date_start $user_realname
+## Last update Fri Mar 29 18:52:37 2013 babacar gueye
+##
+
+NAME		=	$project_name
+EOF
+find ./ -name '*.cpp' | tr ' ' '\n' | awk '{if (NR > 1) { print "\t\t\t" $0; for (i=7; i > (length($0) / 8); i--) print "\t"; print "\\$"} else { print "SRC\t\t=\t" $0 ; for (i=7; i > (length($0) / 8); i--) print "\t"; print "\\$"}}' | tr -d '\n' | tr '$' '\n' >> Makefile
+cat <<EOF >> Makefile
+
+OBJ		=	\$(SRC:.cpp=.o)
+IDIR		=	./
+INCLUDE		=	-I\$(IDIR)
+CFLAGS		+=	-W -Wall -Wextra -Werror \$(INCLUDE)
+LDFLAGS		=
+RM		=	rm -f
+CC		=	g++
+
+ifeq (\${DEBUG},yes)
+CFLAGS          +=      -g3
+endif
+
+\$(NAME)		:	\$(OBJ)
+		\$(CC) \$(OBJ) -o \$(NAME) \$(LDFLAGS)
+
+all		:	\$(NAME)
+
+clean		:
+		\$(RM) \$(OBJ)
+
+fclean		:	clean
+		\$(RM) \$(NAME)
+
+re		:	fclean all
+
+.PHONY		:	all clean fclean re
+
+.SUFFIXES	:	.cpp .o
+
+.cpp.o		:
+		\$(CC) \$(CFLAGS) -c \$< -o \$(<:.cpp=.o)
+
+proper		:	all clean
+
+EOF

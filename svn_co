@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ $# -eq 0 ]
+then
+    echo -e "\033[31m"
+    echo "No arguments detected"
+    echo -e "\033[37m"
+    echo "Farewell !"
+    exit 1
+fi
+
+svn co svn+ssh://kscm@koala-rendus.epitech.net/$1

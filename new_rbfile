@@ -1,0 +1,17 @@
+#!/bin/bash
+
+for var in "$@"
+do
+    echo ">> $var"
+    cat << EOF > $var
+#!/usr/bin/env ruby
+
+## '$var' ##
+EOF
+    chmod +x $var
+done
+
+
+# while [ ]
+# do
+# done
