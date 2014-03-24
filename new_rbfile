@@ -7,6 +7,11 @@ do
 #!/usr/bin/env ruby
 
 ## '$var' ##
+
+if __FILE__ == $0
+  # Do something.. run tests, call a method, etc. We're direct.
+end
+
 EOF
     chmod +x $var
 done
