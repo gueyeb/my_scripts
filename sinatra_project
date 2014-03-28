@@ -27,7 +27,7 @@ run Sinatra::Application
 EOF
 
     cat << EOF > $1/Procfile
-web: bundle exec rackup config.ru -p $PORT
+web: bundle exec rackup config.ru -p \$PORT
 EOF
 }
 
