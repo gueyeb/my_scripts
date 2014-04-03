@@ -4,9 +4,23 @@ function write_files()
 {
     cat << EOF > $1/my_app.rb
 require 'sinatra'
+require "better_errors"
+
+# configuration
+
+configure :development do
+  use BetterErrors::Middleware
+  BetterErrors.application_root = __dir__
+end
+
+# routes
 
 get '/' do
   "Hello World"
+end
+
+get '/fail' do
+  raise 'oops'
 end
 EOF
 
@@ -17,6 +31,10 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'httparty'
 gem 'haml'
+
+group :development do
+  gem 'betters_errors'
+end
 EOF
 
     cat << EOF > $1/config.ru
