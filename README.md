@@ -32,3 +32,7 @@ Files >>>
 ---
 	svn_co
 ---
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/gueyeb/my_scripts/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
