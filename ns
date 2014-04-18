@@ -1,11 +1,14 @@
 #!/usr/bin/env zsh
+
+## For EPITECH students only use till Netsoul protocol is officially abandoned
+
 ## ns.sh for ns in /u/epitech_2011/rollan_a/cu/sbin
 ## 
 ## Made by alexis rolland
 ## Login   <rollan_a@epitech.net>
 ## 
 ## Started on  Fri Feb  8 10:38:15 2008 alexis rolland
-## Last update Fri Feb  8 10:38:24 2008 alexis rolland
+## Last update Fri Apr 18 16:48:10 2014 Babacar Gueye
 ##
 if [ $# -eq 0 ]
   then
