@@ -2,6 +2,12 @@
 
 ## 'chrome_lnchr' ##
 
+# Later, handle multiple mode in opening chrome
+## new window
+## new tab
+## private window
+## open google services (gmail, hangouts and stuff)
+
 HOST_OS ||= (defined?('RbConfig') ? RbConfig : Config)::CONFIG['host_os']
 
 # troll. useless here
