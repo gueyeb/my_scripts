@@ -1,0 +1,43 @@
+#!/usr/bin/env ruby
+
+## 'new_blgpst' ##
+
+### Script creating a new Jekyll blog post ###
+
+# ask article name
+# format article name file
+
+# add basic info
+# add lang
+# add basic layout
+# ask categories
+
+def ask_details
+  puts "ask details"
+
+  art_name = gets
+  puts "art_name = #{ art_name }"
+
+  infos = {:art_name => art_name}
+  infos
+end
+
+def main
+  article_name = ARGV[0] if !ARGV[0].nil?
+  # formatted_art_name = art_name.tr! ' ', ?_
+  if art_name.nil?
+    art_name = String.new
+  end
+  formatted_art_name = art_name.downcase.gsub(/[ ']/, ' ' => '_')
+
+  if ARGV.length == 0
+    infos = ask_details
+  end
+
+  puts "Article name : [#{ article_name }]"
+  puts "Formatted article name : [#{ formatted_article_name }]"
+end
+
+if __FILE__ == $0
+  main
+end
