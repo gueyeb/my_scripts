@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+## 'historize' ##
+
+# args
+## no args, use current dir.
+## with 1 arg, make it target dir
+
+# work
+## create a current dir symbolic link
+## and a dir named with a formated date string like (for 14/04/2014 have 2014-04-14-files)
+
+# process
+## run script each day before working to organize files
+## next, if cur dir for today is not created yet, move all files
+## and create new dir properly
+
+# additional
+## create a dir with some contents
+## add a historical log of entries and moves
+
+# bonus
+## clean temporary files (push to a local .trash dir)
+## the local trash dir will be empty/cleaned if files are at least 30 days old
+## large file size (up to 2go) will be directly removed
+
+def main
+
+end
+
+if __FILE__ == $0
+  main
+end
+
