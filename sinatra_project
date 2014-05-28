@@ -4,16 +4,19 @@ function write_files()
 {
     cat << EOF > $1/my_app.rb
 require 'sinatra'
-require "better_errors"
+require 'better_errors'
 
-# configuration
+## configuration
 
 configure :development do
   use BetterErrors::Middleware
   BetterErrors.application_root = __dir__
 end
 
-# routes
+configure do
+end
+
+## routes
 
 get '/' do
   "Hello World"
@@ -47,7 +50,12 @@ EOF
     cat << EOF > $1/Procfile
 web: bundle exec rackup config.ru -p \$PORT
 EOF
+
+    cat << EOF > $1/public/css/style.css
+EOF
 }
+
+## if option haml, generate views files
 
 if [ $# -eq 0 ]
 then
@@ -56,12 +64,9 @@ then
     echo -e "\033[37m"
     echo "Using default name ..."
     mkdir -p myproject myproject/views myproject/lib myproject/public myproject/public/javascript myproject/public/css myproject/public/images
-    
     write_files "myproject"
-
 else
     mkdir -p $1 $1/views $1/lib $1/public $1/public/javascript $1/public/css $1/public/images
-    
     write_files $1
 fi
 
