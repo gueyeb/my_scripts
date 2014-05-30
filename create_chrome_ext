@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby
+
+## 'create_chrome_ext' ##
+
+#arborescence
+#- dir
+#    - manifest.json
+#    - view.html (default_popup)
+#    - icon16.png
+#    - icon48.png
+#    - icon128.png
+
+def main
+  ## main method of program. run first
+
+end
+
+if __FILE__ == $0
+  # Do something.. run tests, call a method, etc. We're direct.
+
+  main
+end
+
