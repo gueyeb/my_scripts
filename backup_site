@@ -1,0 +1,12 @@
+#!/bin/bash
+
+## 'backup_site' ##
+
+if [ $# -eq 0 ]
+then
+    echo "Error. No arguments passed."
+else
+    echo "Making a backup of this website : " $1
+    # shorter version (wget -m -k -K -nc -E -w --limit-rate=20k $1)
+    wget --mirror --convert-links --backup-converted --no-clobber --adjust-extension --wait=5 --limit-rate=20k $1
+fi
