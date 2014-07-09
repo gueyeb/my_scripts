@@ -1,0 +1,49 @@
+#!/bin/bash
+
+## 'nodejs_project' ##
+
+function write_files()
+{
+# Basic files
+touch $1/index.js
+touch $1/test.js
+touch $1/README.md
+
+# Travis CI
+touch $1/.travis.yml
+cat << EOF > $1/.travis.yml
+language: node_js 
+node_js:
+  - '0.10'
+EOF
+
+# GIT
+touch $1/.gitignore
+cat << EOF > $1/.gitignore
+node_modules
+npm-debug.log
+EOF
+
+# EOL normalization
+touch $1/.gitattributes
+echo '* text=auto' >> $1/.gitattributes
+
+cd $1
+npm init
+git init
+}
+
+if [ $# -eq 0 ]
+then
+    echo -e "\033[31m"
+    echo "No arguments detected"
+    echo -e "\033[37m"
+    echo "Using default name ..."
+    mkdir my_nodeproject
+    write_files "my_nodeproject"
+else
+    mkdir $1
+    write_files $1
+fi
+
+echo "Finished. Have fun !"
