@@ -1,3 +1,23 @@
 #!/bin/bash
 
 ## 'new_cfile' ##
+
+YEAR=$(date +%Y)
+OWNER=$(finger `whoami` | awk -F: '{ print $3 }' | head -n1 | sed 's/^ //')
+
+for file in "$@"
+do
+    echo ">> $file"
+    cat << EOF > $file
+// Copyright [$YEAR] <Copyright $OWNER>
+
+## '$file' ##
+
+int main(int ac, char **av) {
+  (void)ac;
+  (void)av;
+  return 0;
+}
+EOF
+
+done
