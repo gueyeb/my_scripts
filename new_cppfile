@@ -1,3 +1,35 @@
 #!/bin/bash
 
+# respect google guides and maybe epitech ones
+
 ## 'new_cppfile' ##
+
+YEAR=$(date +%Y)
+OWNER=$(finger `whoami` | awk -F: '{ print $3 }' | head -n1 | sed 's/^ //')
+
+for file in "$@"
+do
+    echo ">> $file"
+    cat << EOF > $file
+// Copyright [$YEAR] <Copyright $OWNER>
+
+/* '$file' */
+
+# include <iostream>
+
+int main(int ac, char *av[]) {
+  (void)ac;
+  (void)av;
+
+  try
+  {
+  }
+  catch (std::exception& e)
+  {
+    std::cerr << e.what();
+  }
+  return 0;
+}
+EOF
+
+done

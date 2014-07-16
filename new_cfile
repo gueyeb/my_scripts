@@ -11,7 +11,7 @@ do
     cat << EOF > $file
 // Copyright [$YEAR] <Copyright $OWNER>
 
-## '$file' ##
+/* '$file' */
 
 int main(int ac, char **av) {
   (void)ac;
