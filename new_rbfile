@@ -9,7 +9,7 @@ do
 ## '$var' ##
 
 def main
-
+  puts "$var"
 end
 
 if __FILE__ == \$0
