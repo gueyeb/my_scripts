@@ -1,3 +1,21 @@
 #!/bin/bash
 
 ## 'new_gofile' ##
+
+for var in "$@"
+do
+    echo ">> $var"
+    cat << EOF > $var
+// '$var' //
+
+package main
+
+import "fmt"
+
+func main() {
+  fmt.Println("Hello $var");
+}
+
+EOF
+    chmod +x $var
+done
