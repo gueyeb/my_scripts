@@ -1,0 +1,11 @@
+#!/bin/bash
+
+## 'new_mdfile' ##
+
+for var in "$@"
+do
+    echo ">> $var"
+    cat << EOF > $var
+# '$var'
+EOF
+done
