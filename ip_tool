@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+require 'net/http'
+
+# require 'httparty'
+
+# bash ip (online)
+# curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'
+
+# bash (ip outsite)
+# ipconfig getifaddr en1
+
+
+def local_ip
+
+end
+
+def ip
+  uri = URI('http://checkip.dyndns.com/')
+  res = Net::HTTP.get(uri)
+  res.gsub(/[^0-9\.]/, '')
+end
+
+puts ip
