@@ -1,0 +1,25 @@
+#!/bin/bash
+
+## 'clean_ext' ##
+
+## Clean files with given extension in DIR
+# remove temp files as well *~
+
+USAGE="$0 <extension> [DIR]"
+
+# options
+# default > remove all
+# leave file created/modified TODAY > -l
+
+if [ $# -eq 0 ]
+then
+    echo $USAGE
+    exit 1
+else
+    # rm "*.$1"
+    # if arg2 exits, set DIR
+    # DIR = $2
+    echo "Extension file is [$1]"
+    FILES=$(ls './' | cat | grep ".$1")
+    echo "files : $FILES"
+fi
