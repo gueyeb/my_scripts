@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+## 'computor' ##
+
+# monitor cpu and other stuff activities
+
+def main
+  puts "computor"
+end
+
+if __FILE__ == $0
+  main
+end
+

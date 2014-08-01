@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+## 'gen_makefile' ##
+
+def main
+  puts "gen_makefile"
+end
+
+if __FILE__ == $0
+  main
+end
+

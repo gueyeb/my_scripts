@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+## 'log_rotate' ##
+
+### http://en.wikipedia.org/wiki/Log_rotation
+
+USAGE = "$0 <logfile> <options>"
+
+def rotate
+
+end
+
+def main
+
+end
+
+if __FILE__ == $0
+  main
+end
+
