@@ -2,6 +2,8 @@
 
 ## 'nodejs_project' ##
 
+# if option --views = true >> add views folder / create index.(template_motor) / change index.js to main.js
+
 function write_files()
 {
 # Basic files

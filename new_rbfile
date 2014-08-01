@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# if option --test = true // add method test and format name accordingly
+
 for var in "$@"
 do
     echo ">> $var"
