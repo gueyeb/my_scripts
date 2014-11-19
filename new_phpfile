@@ -1,0 +1,19 @@
+#!/bin/bash
+
+## 'new_phpfile' ##
+
+for var in "$@"
+do
+    echo ">> $var"
+    cat << EOF > $var
+#!/usr/bin/env php
+
+## '$var' ##
+
+<?php
+
+?>
+
+EOF
+    chmod +x $var
+done
