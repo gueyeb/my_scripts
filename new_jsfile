@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for var in "$@"
+do
+    # var = $(echo $var | iconv -f utf8 -t ascii//TRANSLIT)
+    echo ">> $var"
+    cat << EOF > $var
+
+// '$var' //
+EOF
+
+done
