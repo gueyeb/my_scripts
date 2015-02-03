@@ -1,0 +1,18 @@
+#!/bin/bash
+
+## 'gen_editorconfig' ##
+
+cat << EOF > '$var/.editorconfig'
+# top-most EditorConfig file
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+
+# Default charset
+charset = utf-8
+
+EOF
