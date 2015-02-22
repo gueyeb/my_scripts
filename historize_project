@@ -1,0 +1,5 @@
+#!/bin/bash
+
+## 'historize_project' ##
+
+# write and update HISTORY.md
