@@ -2,7 +2,17 @@
 
 ## 'nodejs_project' ##
 
+# record log
+
 # if option --views = true >> add views folder / create index.(template_motor) / change index.js to main.js
+
+#  [-f|--force|-y|--yes]
+
+DEFAULT_NAME="my_nodeproject"
+REPONAME="My new thing"
+USAGE=""
+
+# usage function
 
 function write_files()
 {
@@ -11,28 +21,68 @@ touch $1/index.js
 touch $1/test.js
 touch $1/README.md
 
+# Makefile
+touch $1/Makefile
+cat << EOF > $1/Makefile
+
+EOF
+
 # Travis CI
 touch $1/.travis.yml
 cat << EOF > $1/.travis.yml
-language: node_js 
+language: node_js
 node_js:
   - '0.10'
 EOF
 
-# GIT
-touch $1/.gitignore
-cat << EOF > $1/.gitignore
-node_modules
-npm-debug.log
+# Editorconfig
+touch $1/.editorconfig
+cat << EOF > $1/.editorconfig
+
 EOF
 
-# EOL normalization
+# JSHint
+touch $1/.jshintrc
+cat << EOF > $1/.jshintrc
+{
+  "node": true,
+  "esnext": true,
+  "bitwise": true,
+  "camelcase": true,
+  "curly": true,
+  "immed": true,
+  "newcap": true,
+  "noarg": true,
+  "undef": true,
+  "unused": "vars",
+  "strict": true
+}
+EOF
+
+# GIT
+wget https://raw.githubusercontent.com/github/gitignore/master/Node.gitignore -O $1/.gitignore
+# touch $1/.gitignore
+# cat << EOF > $1/.gitignore
+# node_modules
+# npm-debug.log
+# EOF
+
 touch $1/.gitattributes
 echo '* text=auto' >> $1/.gitattributes
 
 cd $1
 npm init
+# git init
 git init
+git add . && git commit -m "basic architecture"
+
+# ask if need to create github repository
+## ask REPONAME
+# git create -d $REPONAME
+
+# install basic npm packages
+## test
+# npm install --save mocha
 }
 
 if [ $# -eq 0 ]
