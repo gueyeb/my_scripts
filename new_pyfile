@@ -1,0 +1,21 @@
+#!/bin/bash
+
+for var in "$@"
+do
+    echo ">> $var"
+    cat << EOF > $var
+#!/usr/bin/env python
+
+## '$var' ##
+
+def main
+  puts "$var"
+end
+
+if __FILE__ == \$0
+  main
+end
+
+EOF
+    chmod +x $var
+done
