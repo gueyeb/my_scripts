@@ -8,14 +8,11 @@ do
 
 ## '$var' ##
 
-def main
-  puts "$var"
-end
+def main():
+    print "$var"
 
-if __FILE__ == \$0
-  main
-end
-
+if __name__ == '__main__':
+    main()
 EOF
     chmod +x $var
 done
