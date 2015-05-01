@@ -9,7 +9,7 @@ do
 ## '$var' ##
 
 def main():
-    print "$var"
+    print("$var")
 
 if __name__ == '__main__':
     main()
